@@ -1,0 +1,28 @@
+import hashlib
+import pikepdf
+
+def generate_hash_key(file_path):
+    try:
+        with open(file_path, 'rb') as file:
+            pdf_content = file.read()
+            hash_object = hashlib.sha256(pdf_content)
+            return hash_object.hexdigest()
+    except FileNotFoundError:
+        print("File not found. Make sure the PDF file exists in the specified path.")
+        return None
+    except Exception as e:
+        print(f"Error occurred while generating the hash key: {e}")
+        return None
+
+# Replace 'path/to/your/file.pdf' with the actual path to the PDF file.
+
+# file_path = '2023-07-06 03_05_50Z-EFCR - Copy.pdf'# 'path/to/your/file.pdf'
+# file_path = 'https://tjxinc.sharepoint.com/sites/GRP-IA-EU-OCR-FileShare/Shared Documents/General/Normal/Duplicates/2023-07-06 03_05_50Z-EFCR.pdf'
+# file_path = 'C:\Users\Tom00367\OneDrive - The TJX Companies, Inc\Normal\2023-06-30 00_13_15Z-Invoice 1006626773.pdf'
+hash_key = generate_hash_key(file_path)
+
+if hash_key:
+    print(f"{hash_key}")
+    # print(f"Hash key generated for the PDF file: {hash_key}")
+else:
+    print("Failed to generate the hash key for the PDF file.")
