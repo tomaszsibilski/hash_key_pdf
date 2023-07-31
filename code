@@ -16,9 +16,6 @@ def generate_hash_key(file_path):
 
 # Replace 'path/to/your/file.pdf' with the actual path to the PDF file.
 
-# file_path = '2023-07-06 03_05_50Z-EFCR - Copy.pdf'# 'path/to/your/file.pdf'
-# file_path = 'https://tjxinc.sharepoint.com/sites/GRP-IA-EU-OCR-FileShare/Shared Documents/General/Normal/Duplicates/2023-07-06 03_05_50Z-EFCR.pdf'
-# file_path = 'C:\Users\Tom00367\OneDrive - The TJX Companies, Inc\Normal\2023-06-30 00_13_15Z-Invoice 1006626773.pdf'
 hash_key = generate_hash_key(file_path)
 
 if hash_key:
